@@ -36,6 +36,14 @@ import axios from 'axios'
     created() {
         axios.get("https://quote-garden.onrender.com/api/v3/quotes?limit=5&author=" + this.author)
             .then(res => {
+            (this.qoutes = res.data.data);
+        })
+            .catch(err => console.log(err));
+    },
+
+    updated() {
+        axios.get("https://quote-garden.onrender.com/api/v3/quotes?limit=5&author=" + this.author)
+            .then(res => {
             // console.log(res.data)
             (this.qoutes = res.data.data);
         })
